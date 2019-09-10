@@ -3,6 +3,7 @@
 package main
 
 import "fmt"
+import "errors"
 
 type Bitcoin int
 
@@ -15,12 +16,17 @@ type Wallet struct {
 }
 
 // 構造体の値を変更するのでポインタ関数として振る舞いを定義
-func (w *Wallet) Deposit(amount Bitcoin) {
+func (w *Wallet) Deposit(amount Bitcoin) error {
 	w.balance += amount
+	return nil
 }
 
-func (w *Wallet) Withdraw(amount Bitcoin) {
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return errors.New("oh no")
+	}
 	w.balance -= amount
+	return nil
 }
 
 func (w *Wallet) Balance() Bitcoin {
