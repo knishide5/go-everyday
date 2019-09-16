@@ -1,4 +1,5 @@
 package lexer
+// 字句解析器：入力をトークン列に変換する
 
 import "go-everyday/monkey/token"
 
@@ -6,7 +7,7 @@ type Lexer struct {
   input string
   position int // 入力における現在の位置
   readPosition int // これから読み込む位置
-  ch byte // 現在検査中の文字
+  ch byte // 現在検査中の文字。文字列にインデックス指定でアクセスするとbyteになる
 }
 
 func New(input string) *Lexer {
@@ -42,6 +43,18 @@ func (l *Lexer) NextToken() token.Token {
     tok = newToken(token.COMMA, l.ch)
   case '+':
     tok = newToken(token.PLUS, l.ch)
+  case '-':
+    tok = newToken(token.MINUS, l.ch)
+  case '!':
+    tok = newToken(token.BANG, l.ch)
+  case '/':
+    tok = newToken(token.SLASH, l.ch)
+  case '*':
+    tok = newToken(token.ASTERISK, l.ch)
+  case '<':
+    tok = newToken(token.LT, l.ch)
+  case '>':
+    tok = newToken(token.GT, l.ch)
   case '{':
     tok = newToken(token.LBRACE, l.ch)
   case '}':
