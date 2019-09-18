@@ -1,17 +1,17 @@
 package repl
 
-import {
+import (
 	"bufio"
 	"fmt"
 	"io"
 	"go-everyday/monkey/lexer"
 	"go-everyday/monkey/token"
-}
+)
 
 const PROMPT = ">> "
 
 func Start(in io.Reader, out io.Writer) {
-	scanner := buffio.NewScanner(in)
+	scanner := bufio.NewScanner(in)
 	for {
 		fmt.Printf(PROMPT)
 		scanned := scanner.Scan()
