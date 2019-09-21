@@ -13,3 +13,7 @@ type Expression interface {
 	Node
 	expressionNode()
 }
+
+type Program struct {
+	Statements []Statement
+}
