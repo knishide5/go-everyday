@@ -37,4 +37,25 @@ func TestLetStatements(t *testing.T) {
       return
     }
   }
+
+  func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
+    if s.TokenLiteral() != "let" {
+      return false
+    }
+
+    letStmt, ok := s.(*ast.LetStatement)
+    if !ok {
+      return false
+    }
+
+    if letStmt.Name.Value != name {
+      return false
+    }
+
+    if letStmt.Name.TokenLiteral() != name {
+      return false
+    }
+
+    return true
+  }
 }
