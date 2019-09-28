@@ -49,6 +49,7 @@ func TestLetStatements(t *testing.T) {
     }
 
     if letStmt.Name.Value != name {
+      t.Errorf("letStmt.Name.Value not '%s'. got=%s", name, letStmt.Name.Value)
       return false
     }
 
