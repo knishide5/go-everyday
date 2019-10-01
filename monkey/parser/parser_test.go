@@ -38,6 +38,7 @@ func TestLetStatements(t *testing.T) {
     }
   }
 
+  // 字句解析器
   func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
     if s.TokenLiteral() != "let" {
       t.Errorf("s.TokenLiteral not 'let'. got=%q", s.TokenLiteral())
