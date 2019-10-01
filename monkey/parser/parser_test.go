@@ -46,6 +46,7 @@ func TestLetStatements(t *testing.T) {
 
     letStmt, ok := s.(*ast.LetStatement)
     if !ok {
+      t.Errorf("s not *ast.LetStatement. got=%T", s)
       return false
     }
 
