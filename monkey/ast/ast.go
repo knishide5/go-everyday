@@ -9,7 +9,7 @@ type Node interface {
 
 type Statement interface {
 	Node
-	statmentNode() // dummy
+	statementNode() // dummy
 }
 
 type Expression interface {
@@ -31,7 +31,7 @@ func (p *Program) TokenLiteral() string {
 }
 
 type LetStatement struct {
-	Token token.Token
+	Token token.Token // token.LET トークン
 	Name *Identifier
 	Value Expression
 }
